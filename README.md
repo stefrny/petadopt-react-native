@@ -1,9 +1,19 @@
-PetModel
-
-Pet Properties 
- name, breed,  gender, age,  weight, color,  story, available: 
-
-
+Para Criar um PET
+Precisa enviar um POST para
+https://petadopt.onrender.com/pet/create
+Com:
+IMPORTANTE: Precisa enviar o TOKEN do login!
+{
+	"name": "meu gatinho", 
+	"breed": "Caramelo",  
+	"gender": "male", 
+	"age": 7,  
+	"weight": 12, 
+	"color": "Laranja",  
+	"story": "CAt Feliz!", 
+	"available": true,
+	"category": "6758971d7203bce5d0315e5f"  --> é um ID que é retornado no GET https://petadopt.onrender.com/pet/category
+}
 
 
 
