@@ -1,4 +1,4 @@
-# fk-petadopt 🐾
+# Pet Adopt 🐾
 
 Aplicativo de adoção de pets desenvolvido com Expo e React Native.
 
