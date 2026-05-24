@@ -1,7 +1,9 @@
-import { PetItem } from '@/components/petItem';
-import { PetProvider, usePets } from '@/context/petContext';
 import { FlatList, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
+import { PetItem } from '@/components/petItem';
+import { PetProvider } from '@/context/petContext';
+import { usePets } from '@/hooks/usePets';
 
 function PetList() {
   const { pets, loading, error } = usePets();

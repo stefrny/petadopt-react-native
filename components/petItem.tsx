@@ -1,7 +1,13 @@
 import { Animated, Image, StyleSheet, View } from 'react-native';
 import { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-export function PetItem({ pet }) {
+import { Pet } from '@/types';
+
+interface PetItemProps {
+  pet: Pet;
+}
+
+export function PetItem({ pet }: PetItemProps) {
   const rotation = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => {

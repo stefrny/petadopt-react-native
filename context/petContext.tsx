@@ -1,12 +1,20 @@
+import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
+import { Pet } from '@/types';
 import { getPets } from '@/services/petService';
-import { createContext, useContext, useEffect, useState } from 'react';
 
-const PetContext = createContext(undefined);
+export type PetContextValue = {
+  pets: Pet[];
+  loading: boolean;
+  error: string | null;
+  fetchPets: () => Promise<void>;
+};
 
-export function PetProvider({ children }) {
-  const [pets, setPets] = useState([]);
+export const PetContext = createContext<PetContextValue | undefined>(undefined);
+
+export function PetProvider({ children }: { children: ReactNode }) {
+  const [pets, setPets] = useState<Pet[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function fetchPets() {
     try {
@@ -38,14 +46,4 @@ export function PetProvider({ children }) {
       {children}
     </PetContext.Provider>
   );
-}
-
-export function usePets() {
-  const context = useContext(PetContext);
-
-  if (context === undefined) {
-    throw new Error('usePets deve ser usado dentro de PetProvider');
-  }
-
-  return context;
 }
