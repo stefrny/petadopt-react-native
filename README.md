@@ -21,7 +21,7 @@ Aplicativo de adoção de pets desenvolvido com Expo e React Native.
 - Expo Router
 - Context API
 - AsyncStorage
-- Axios / Fetch API
+- Fetch API
 
 ## 🚀 Como rodar o projeto
 
