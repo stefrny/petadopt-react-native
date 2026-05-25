@@ -1,8 +1,7 @@
 import { FlatList, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { PetItem } from '@/components/petItem';
-import { PetProvider } from '@/context/petContext';
 import { usePets } from '@/hooks/usePets';
 
 function PetList() {
@@ -29,26 +28,26 @@ function PetList() {
       data={pets}
       renderItem={({ item }) => <PetItem pet={item} />}
       keyExtractor={(item) => item._id}
+      contentContainerStyle={styles.list}
     />
   );
 }
 
 export default function HomeScreen() {
   return (
-    <SafeAreaProvider>
-      <PetProvider>
-        <SafeAreaView style={styles.container}>
-          <PetList />
-        </SafeAreaView>
-      </PetProvider>
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <PetList />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#fff',
+  },
+  list: {
+    padding: 8,
   },
   center: {
     flex: 1,

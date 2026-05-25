@@ -1,6 +1,4 @@
-import { Animated, Image, StyleSheet, View } from 'react-native';
-import { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
-
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { Pet } from '@/types';
 
 interface PetItemProps {
@@ -8,15 +6,6 @@ interface PetItemProps {
 }
 
 export function PetItem({ pet }: PetItemProps) {
-  const rotation = useSharedValue(0);
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ rotate: `${rotation.value}deg` }],
-    };
-  });
-
-
   return (
     <View style={styles.container}>
       <Image
@@ -24,57 +13,53 @@ export function PetItem({ pet }: PetItemProps) {
         style={styles.image}
         resizeMode="cover"
       />
-      <Animated.View style={[animatedStyle, {
-        marginBottom: 4,
-      }]}>
-        <Animated.Text
-          style={styles.text}>
+      <View style={{ marginBottom: 4 }}>
+        <Text style={styles.text}>
           {pet.name}
-        </Animated.Text>
-      </Animated.View>
+        </Text>
+      </View>
 
-      <Animated.Text
-        style={styles.subtitle}>
+      <Text style={styles.subtitle}>
         {pet.gender}
-      </Animated.Text>
-      <Animated.Text
-        style={styles.subtitle}>
-        {pet.age} anos
-      </Animated.Text>
+      </Text>
+      <Text style={styles.subtitle}>
+        {pet.age} {pet.age === 1 ? 'ano' : 'anos'}
+      </Text>
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#f8f9fa',
-    borderRadius: 12,
-    margin: 8,
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    marginVertical: 8,
+    marginHorizontal: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: 8,
     elevation: 3,
   },
   text: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     color: '#666',
     fontWeight: '500',
     textAlign: 'center',
   },
   image: {
-    width: 120,
-    height: 120,
-    borderRadius: 16,
+    width: 140,
+    height: 140,
+    borderRadius: 70, // Círculo para um visual mais moderno
     marginBottom: 12,
+    backgroundColor: '#eee',
   }
 });

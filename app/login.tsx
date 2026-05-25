@@ -1,6 +1,4 @@
 import { useState } from 'react';
-
-
 import {
     Alert,
     StyleSheet,
@@ -9,30 +7,21 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import { router } from 'expo-router';
 
 export default function LoginScreen() {
-
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const handleLogin = async () => {
-
     try {
-
-      const usuarioSalvo =
-        await AsyncStorage.getItem('usuario');
-
+      const usuarioSalvo = await AsyncStorage.getItem('usuario');
       if (!usuarioSalvo) {
-
         Alert.alert(
           'Erro',
           'Nenhum usuário cadastrado'
         );
-
         return;
       }
 
@@ -42,21 +31,16 @@ export default function LoginScreen() {
         usuario.email === email &&
         usuario.senha === senha
       ) {
-
         await AsyncStorage.setItem(
           'logado',
           'true'
         );
-
         Alert.alert(
           'Sucesso',
           'Login realizado'
         );
-
         router.replace('/(tabs)');
-
       } else {
-
         Alert.alert(
           'Erro',
           'E-mail ou senha inválidos'
@@ -64,7 +48,6 @@ export default function LoginScreen() {
       }
 
     } catch (error) {
-
       Alert.alert(
         'Erro',
         'Não foi possível fazer login'
@@ -74,10 +57,7 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
-
-      <Text style={styles.title}>
-        Login
-      </Text>
+      <Text style={styles.title}>Login</Text>
 
       <TextInput
         placeholder="E-mail"
