@@ -4,8 +4,8 @@ Aplicativo de adoção de pets desenvolvido com Expo e React Native.
 
 ## 🎯 Objetivos Principais
 
-- [ ] **Autenticação Real:** Implementar login e cadastro integrados à API e persistência de sessão.
-- [ ] **Rotas Protegidas:** Garantir que apenas usuários logados acessem o app principal.
+- [x] **Autenticação Real:** Implementar login e cadastro integrados à API e persistência de sessão.
+- [x] **Rotas Protegidas:** Garantir que apenas usuários logados acessem o app principal.
 - [ ] **Listagem de Pets com Filtros:** Melhorar a Home com categorias e filtros rápidos.
 - [ ] **Filtros Avançados:** Modal para busca refinada (espécie, porte, idade, etc).
 - [ ] **Busca de Pets:** Barra de pesquisa por nome ou localização.
