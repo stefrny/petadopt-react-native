@@ -11,6 +11,13 @@ export interface User {
 }
 
 /**
+ * Resposta de GET /user/:id.
+ */
+export interface UserResponse {
+  user: User;
+}
+
+/**
  * Payload para cadastro de um novo usuário.
  */
 export interface RegisterUserPayload {

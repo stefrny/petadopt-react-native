@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -7,6 +7,8 @@ import { useAuth } from '@/hooks/useAuth';
 
 export default function ProfileScreen() {
   const { user, signOut } = useAuth();
+
+  console.log(user);
 
   if (!user) return null;
 

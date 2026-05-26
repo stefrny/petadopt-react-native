@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { userId, token } = response;
       
       // Busca os dados completos do usuário
-      const userData = await getUser(userId);
+      const userData = await getUser(userId, token);
 
       if (!userData) {
         throw new Error('Erro ao recuperar dados do usuário');

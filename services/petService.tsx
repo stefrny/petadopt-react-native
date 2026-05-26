@@ -1,24 +1,27 @@
 import type {
-  User,
   RegisterUserPayload,
   LoginPayload,
   LoginResponse,
   RegisterUserResponse,
   Pet,
   ApiResponse,
+  UserResponse,
 } from '@/types';
 
 const API_URL = 'https://petadopt.onrender.com';
 
-export async function getUser(userId: string) {
-  const response = await fetch(`${API_URL}/user/${userId}`);
+export async function getUser(userId: string, token: string) {
+  const response = await fetch(`${API_URL}/user/${userId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
   if (!response.ok) {
     console.log(await response.text());
     return null;
   }
 
-  return await response.json() as User;
+  const data = await response.json() as UserResponse;
+  return data.user;
 }
 
 export async function loginUser(payload: LoginPayload) {
