@@ -8,7 +8,7 @@ Aplicativo de adoção de pets desenvolvido com Expo e React Native.
 - [x] **Rotas Protegidas:** Garantir que apenas usuários logados acessem o app principal.
 - [x] **Busca e Filtros Avançados:** Barra de pesquisa e modal para busca refinada (espécie, porte, idade, etc).
 - [x] **Detalhes do Pet:** Tela completa com informações detalhadas e contato.
-- [ ] **Cadastro de Pets:** Tela para cadastrar novos pets.
+- [x] **Cadastro de Pets:** Tela para cadastrar novos pets.
 - [x] **Favoritos:** Funcionalidade de salvar pets favoritos localmente.
 - [x] **Perfil do Usuário:** Tela de visualização de dados e logout.
 - [x] **Navegação por Tabs:** Reestruturar abas (Home, Favoritos, Perfil).
