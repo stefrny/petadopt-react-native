@@ -1,13 +1,7 @@
 import { useContext } from 'react';
 
-import { PetContext } from '@/context/petContext';
+import { PetContext } from '@/contexts';
 
 export function usePets() {
-  const context = useContext(PetContext);
-
-  if (context === undefined) {
-    throw new Error('usePets deve ser usado dentro de PetProvider');
-  }
-
-  return context;
+  return useContext(PetContext);
 }

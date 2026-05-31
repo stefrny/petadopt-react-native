@@ -10,7 +10,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { router } from 'expo-router';
-import { registerUser } from '@/services/petService';
+
+import { registerUser } from '@/services';
 
 export default function Cadastro() {
   const [name, setName] = useState('');

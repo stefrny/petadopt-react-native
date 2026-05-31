@@ -5,9 +5,9 @@ import { Stack, router, useSegments } from 'expo-router';
 import { View, ActivityIndicator } from 'react-native';
 import 'react-native-reanimated';
 
-import { PetProvider } from '@/context/petContext';
-import { AuthProvider } from '@/context/authContext';
-import { useAuth } from '@/hooks/useAuth';
+import { PetProvider } from '@/contexts';
+import { AuthProvider } from '@/contexts';
+import { useAuth } from '@/hooks';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -20,7 +20,7 @@ function RootLayoutNav() {
   useEffect(() => {
     if (loading) return;
 
-    const isRouteProtected = segments[0] === '(tabs)';
+    const isRouteProtected = segments[0] === '(tabs)' || segments[0] === 'pet';
     const isAuthRoute = segments[0] === 'login' || segments[0] === 'cadastro';
 
     if (!isAuthenticated && isRouteProtected) {
@@ -45,6 +45,7 @@ function RootLayoutNav() {
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="login" />
       <Stack.Screen name="cadastro" />
+      <Stack.Screen name="pet/create" />
     </Stack>
   );
 }

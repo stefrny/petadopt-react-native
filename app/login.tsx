@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import {
-    Alert,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    ActivityIndicator
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ActivityIndicator
 } from 'react-native';
 import { router } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
@@ -23,17 +23,9 @@ export default function LoginScreen() {
       return;
     }
 
-    try {
-      setLoading(true);
-      await signIn({ email, password });
-    } catch (error) {
-      Alert.alert(
-        'Erro',
-        error instanceof Error ? error.message : 'Não foi possível fazer login'
-      );
-    } finally {
-      setLoading(false);
-    }
+    setLoading(true);
+    await signIn({ email, password });
+    setLoading(false);
   };
 
   return (

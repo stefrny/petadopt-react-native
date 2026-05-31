@@ -1,14 +1,12 @@
-import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks';
 
 export default function ProfileScreen() {
   const { user, signOut } = useAuth();
-
-  console.log(user);
 
   if (!user) return null;
 
@@ -25,6 +23,18 @@ export default function ProfileScreen() {
           </View>
           <Text style={styles.name}>{user.name}</Text>
           <Text style={styles.email}>{user.email}</Text>
+        </View>
+
+        <View style={styles.infoSection}>
+          <Text style={styles.sectionTitle}>Ações</Text>
+          <TouchableOpacity 
+            style={styles.actionButton} 
+            onPress={() => router.push('/pet/create')}
+          >
+            <Ionicons name="add-circle-outline" size={24} color="#3b82f6" />
+            <Text style={styles.actionButtonText}>Cadastrar novo Pet</Text>
+            <Ionicons name="chevron-forward" size={20} color="#ccc" />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.infoSection}>
@@ -139,6 +149,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#fee2e2',
     backgroundColor: '#fff',
+  },
+  actionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#f1f5f9',
+  },
+  actionButtonText: {
+    flex: 1,
+    marginLeft: 15,
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
   },
   logoutText: {
     marginLeft: 10,

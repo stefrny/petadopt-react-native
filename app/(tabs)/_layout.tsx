@@ -12,12 +12,20 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Explorar',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="search" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: 'Favoritos',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="heart" color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
+
         options={{
           title: 'Perfil',
           tabBarIcon: ({ color }) => <Ionicons size={28} name="person" color={color} />,
