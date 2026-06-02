@@ -28,7 +28,7 @@ export default function FavoritesScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Meus Favoritos</Text>
+        <Text style={styles.title}>Pet`s Favoritos</Text>
       </View>
       <FlatList
         data={favoritePets}
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#2088FF',
   },
   list: {
     paddingHorizontal: 15,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { Alert, StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -57,7 +57,26 @@ export default function ProfileScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.logoutButton} onPress={signOut}>
+        <TouchableOpacity 
+          style={styles.logoutButton} 
+          onPress={() => {
+            Alert.alert(
+              'Sair da conta',
+              'Deseja realmente sair?',
+              [
+                {
+                  text: 'Não',
+                  style: 'cancel',
+                },
+                {
+                  text: 'Sim',
+                  onPress: signOut,
+                  style: 'destructive',
+                },
+              ]
+            );
+          }}
+        >
           <Ionicons name="log-out-outline" size={24} color="#ef4444" />
           <Text style={styles.logoutText}>Sair da Conta</Text>
         </TouchableOpacity>

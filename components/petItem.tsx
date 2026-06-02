@@ -41,7 +41,7 @@ export function PetItem({ pet }: PetItemProps) {
         <Ionicons 
           name={favorited ? "heart" : "heart-outline"} 
           size={24} 
-          color={favorited ? "#ef4444" : "#666"} 
+          color={favorited ? "#ef4444" : "#fff"} 
         />
       </TouchableOpacity>
 
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#fff',
-    borderRadius: 16,
+    backgroundColor: '#73B4FF',
+    borderRadius: 30,
     marginVertical: 8,
     marginHorizontal: 4,
     shadowColor: '#000',
@@ -86,19 +86,18 @@ const styles = StyleSheet.create({
     right: 12,
     top: 12,
     zIndex: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     padding: 8,
     borderRadius: 20,
   },
   text: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#fff',
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: '#fff',
     fontWeight: '500',
     textAlign: 'center',
   },
