@@ -12,7 +12,7 @@ Aplicativo de adoção de pets desenvolvido com Expo e React Native.
 - [x] **Favoritos:** Funcionalidade de salvar pets favoritos localmente.
 - [x] **Perfil do Usuário:** Tela de visualização de dados e logout.
 - [x] **Navegação por Tabs:** Reestruturar abas (Home, Favoritos, Perfil).
-- [ ] **UI/UX Update:** Modernizar a interface com cores consistentes, animações e feedback visual.
+- [x] **UI/UX Update:** Modernizar a interface com cores consistentes, animações e feedback visual.
 
 ## 🛠️ Tecnologias
 
