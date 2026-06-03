@@ -92,6 +92,7 @@ export default function Cadastro() {
           value={password}
           onChangeText={setPassword}
           secureTextEntry
+          autoCapitalize='none'
           style={styles.input}
         />
 
@@ -100,6 +101,7 @@ export default function Cadastro() {
           value={confirmpassword}
           onChangeText={setConfirmpassword}
           secureTextEntry
+          autoCapitalize='none'
           style={styles.input}
         />
 
