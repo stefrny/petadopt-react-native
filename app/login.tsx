@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import {
-    Alert,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    ActivityIndicator
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ActivityIndicator,
+  ImageBackground,
+  Image
 } from 'react-native';
 import { router } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
@@ -23,23 +25,20 @@ export default function LoginScreen() {
       return;
     }
 
-    try {
-      setLoading(true);
-      await signIn({ email, password });
-    } catch (error) {
-      Alert.alert(
-        'Erro',
-        error instanceof Error ? error.message : 'Não foi possível fazer login'
-      );
-    } finally {
-      setLoading(false);
-    }
+    setLoading(true);
+    await signIn({ email, password });
+    setLoading(false);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Pet Adopt</Text>
-      <Text style={styles.subtitle}>Encontre seu novo melhor amigo</Text>
+    <ImageBackground 
+      style={styles.container} 
+      source={require('../assets/images/background-login.png')}
+    >
+      <Image
+        source={require('../assets/images/logo-adotapet.png')}
+        style={styles.logo}
+      />
 
       <View style={styles.form}>
         <TextInput
@@ -56,6 +55,7 @@ export default function LoginScreen() {
           value={password}
           onChangeText={setPassword}
           secureTextEntry
+          autoCapitalize='none'
           style={styles.input}
         />
 
@@ -76,19 +76,22 @@ export default function LoginScreen() {
           style={styles.link}
         >
           <Text style={styles.linkText}>
-            Não tem uma conta? <Text style={{ color: '#3b82f6', fontWeight: 'bold' }}>Crie agora</Text>
+            Não tem uma conta? <Text style={{ color: '#2088FF', fontWeight: 'bold' }}>Crie agora</Text>
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
+    paddingTop: 40,
     backgroundColor: '#fff',
   },
   title: {
@@ -104,25 +107,32 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   form: {
+    flex:1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
     gap: 15,
   },
   input: {
     height: 55,
+    width: '95%',
     borderWidth: 1,
     borderColor: '#eee',
     borderRadius: 12,
     paddingHorizontal: 15,
     backgroundColor: '#f9f9f9',
-    fontSize: 16,
+    fontSize: 16, 
   },
   button: {
     height: 55,
-    backgroundColor: '#3b82f6',
-    borderRadius: 12,
+    width: '100%',
+    backgroundColor: '#2088FF',
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
-    shadowColor: '#3b82f6',
+    shadowColor: '#2088FF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 10,
@@ -138,7 +148,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkText: {
-    color: '#666',
+    color: '#fff',
     fontSize: 15,
   },
+  logo:{
+    width: 300,
+    height: 300,
+  }
 });

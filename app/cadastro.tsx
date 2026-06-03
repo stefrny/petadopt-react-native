@@ -10,7 +10,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { router } from 'expo-router';
-import { registerUser } from '@/services/petService';
+
+import { registerUser } from '@/services';
 
 export default function Cadastro() {
   const [name, setName] = useState('');
@@ -58,7 +59,8 @@ export default function Cadastro() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Criar Conta</Text>
-      <Text style={styles.subtitle}>Junte-se a nós e ajude um pet!</Text>
+      <Text style={styles.subtitle}>Um pequeno gesto seu pode transformar
+ o mundo de um pet.</Text>
 
       <View style={styles.form}>
         <TextInput
@@ -90,6 +92,7 @@ export default function Cadastro() {
           value={password}
           onChangeText={setPassword}
           secureTextEntry
+          autoCapitalize='none'
           style={styles.input}
         />
 
@@ -98,6 +101,7 @@ export default function Cadastro() {
           value={confirmpassword}
           onChangeText={setConfirmpassword}
           secureTextEntry
+          autoCapitalize='none'
           style={styles.input}
         />
 
@@ -130,25 +134,33 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#93C5FF',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#333',
+    color: '#fff',
   },
   subtitle: {
     fontSize: 16,
+    width: '95%',
     textAlign: 'center',
-    color: '#666',
+    color: '#fff',
+    marginTop: 10,
     marginBottom: 30,
   },
   form: {
+    alignItems: 'center',
+    width: '100%',
     gap: 15,
   },
   input: {
+    width: '95%',
     height: 55,
     borderWidth: 1,
     borderColor: '#eee',
@@ -159,11 +171,12 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 55,
-    backgroundColor: '#3b82f6',
-    borderRadius: 12,
+    width: '100%',
+    backgroundColor: '#2088FF',
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 20,
   },
   buttonText: {
     color: '#fff',
@@ -175,7 +188,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkText: {
-    color: '#666',
+    color: '#fff',
     fontSize: 15,
   },
 });

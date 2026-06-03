@@ -1,3 +1,5 @@
+import type { Pet } from "./pet";
+
 /**
  * Representa um Usuário no sistema.
  */
@@ -29,6 +31,29 @@ export interface RegisterUserPayload {
 }
 
 /**
+ * Resposta de login da API.
+ */
+export interface LoginResponse {
+  message: string;
+  token: string;
+  user: {
+    userId: string;
+    isAdmin: boolean;
+    username: string;
+    email: string;
+  };
+  pets: Pet[];
+}
+
+/**
+ * Payload para login.
+ */
+export interface LoginPayload {
+  email: string;
+  password: string;
+}
+
+/**
  * Resposta de cadastro de usuário.
  */
 export interface RegisterUserResponse {
@@ -37,16 +62,3 @@ export interface RegisterUserResponse {
   userId: string;
   isAdmin: boolean;
 }
-
-/**
- * Payload para login.
- */
-export interface LoginPayload {
-  email: string;
-  password?: string;
-}
-
-/**
- * Resposta de login da API.
- */
-export type LoginResponse = RegisterUserResponse;
